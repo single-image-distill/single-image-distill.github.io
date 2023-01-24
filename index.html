@@ -118,14 +118,14 @@
 	}
 
 	tr.spaceUnder>td {
-  		padding-bottom: 1em;
+  		padding-bottom: 4em;
 	}
 
 </style>
 
 <html>
 <head>
-	<title>The Augmented Image Prior: Distilling 1000 Classes by Extrapolating from a Single Image</title>
+	<title>The Augmented Image Prior: <br/> Distilling 1000 Classes by Extrapolating from a Single Image</title>
 	<meta property="og:image" content="Path to my teaser.png"/>
 	<meta property="og:title" content="The augmented image prior: Distilling 1000 classes by extrapolating from a single image" />
 	<meta property="og:description" content="What can neural networks learn about the visual world when provided with only a single image as input? While any image obviously cannot contain the multitudes of all existing objects, scenes and lighting conditions -- within the space of all  256<sup>3x224x224</sup> possible 224-sized square images, it might still provide a strong prior for natural images. To analyze this ``augmented image prior'' hypothesis, we develop a simple framework for training neural networks from scratch using a single image and augmentations using knowledge distillation from a supervised pretrained teacher. With this, we find the answer to the above question to be: `surprisingly, a lot'.  In quantitative terms, we find accuracies of 94%/74% on CIFAR-10/100, 69% on ImageNet, and by extending this method to video and audio, 51% on Kinetics-400 and 84% on SpeechCommands. In extensive analyses spanning 13 datasets, we disentangle the effect of augmentations, choice of data and network architectures and also provide qualitative evaluations that include lucid ``panda neurons'' in networks that have never even seen one."/>
@@ -242,7 +242,7 @@
 				</center>
 			</td>
 		</tr>
-
+		
 		<tr class="spaceUnder">
 			<td>
 				<center>
@@ -264,11 +264,21 @@
 		<tr class="spaceUnder">
 			<td>
 				<center>
-					<p><b>Analysis of IN-1k model distillations.</b> We vary distillation dataset and teacher and student configs. We achieve <u>69% top-1 single-crop accuracy</u> on IN-1k. See more details in the paper.</p>
+					<p><b>Analysis of IN-1k model distillations.</b> We vary distillation dataset and teacher and student configs. We achieve 69% top-1 single-crop accuracy on IN-1k. Even with just argmax (AM) signal, performance remains high at 44%. See more details in the paper.</p>
 					<img class="round" style="width:500px" src="./resources/in1k_distillations.PNG"/>
 				</center>
 			</td>
 		</tr>
+	
+		<tr class="spaceUnder">
+			<td>
+				<center>
+					<p>By varying student width or depth, we find wide models benefit more from parameter-increase an even reach the teacher's performance on ImageNet.</p>
+					<img class="round" style="width:500px" src="./resources/scaling_params_in1k.png"/>
+				</center>
+			</td>
+		</tr>
+		
 		<tr class="spaceUnder">
 			<td>
 				<center>
