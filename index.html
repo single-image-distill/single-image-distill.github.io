@@ -128,11 +128,7 @@
 	<title>Extrapolating from a Single Image to a Thousand Classes using Distillation</title>
 	<meta property="og:image" content="Path to my teaser.png"/>
 	<meta property="og:title" content="Extrapolating from a Single Image to a Thousand Classes using Distillation" />
-	<meta property="og:description" content="What can neural networks learn about the visual world from a single image? While it obviously cannot contain the multitudes of possible objects, scenes and lighting conditions that exist-within the space of all possible 256<sup>3x224x224</sup> 224-sized square images, it might still provide a strong prior for natural images. 
-		To analyze this hypothesis, we develop a framework for training neural networks from scratch using a single image by means of knowledge distillation from a supervised pretrained teacher. 
-		With this, we find that the answer to the above question is: surprisingly, a lot. In quantitative terms, we find top-1 accuracies of 94%/74% on CIFAR-10/100, 59% on ImageNet and, by extending this method to audio, 84% on SpeechCommands. 
-		In extensive analyses we disentangle the effect of augmentations, choice of source image and network architectures and also discover panda neurons in networks that have never seen a panda. 
-		This work shows that one image can be used to extrapolate to thousands of object classes and motivates a renewed research agenda on the fundamental interplay of augmentations and images." />
+	<meta property="og:description" content="What can neural networks learn about the visual world when provided with only a single image as input? While any image obviously cannot contain the multitudes of all existing objects, scenes and lighting conditions -- within the space of all  256<sup>3x224x224</sup> possible 224-sized square images, it might still provide a strong prior for natural images. To analyze this ``augmented image prior'' hypothesis, we develop a simple framework for training neural networks from scratch using a single image and augmentations using knowledge distillation from a supervised pretrained teacher. With this, we find the answer to the above question to be: `surprisingly, a lot'.  In quantitative terms, we find accuracies of 94%/74% on CIFAR-10/100, 69% on ImageNet, and by extending this method to video and audio, 51% on Kinetics-400 and 84\% on SpeechCommands. In extensive analyses spanning 13 datasets, we disentangle the effect of augmentations, choice of data and network architectures and also provide qualitative evaluations that include lucid ``panda neurons'' in networks that have never even seen one."/>
 </head>
 
 <body>
@@ -193,7 +189,7 @@
 				<td>
 					<b>Extrapolating from one image.</b> Strongly augmented patches from a single image are used to train a student (S) to distinguish semantic classes, such as those in ImageNet.
 					The student neural network is initialized randomly and learns from a pretrained teacher (T) via  KL-divergence. 
-					Although almost none of target categories are present in the image, we find student performances of > 66% for classifying ImageNet's 1000 classes.
+					Although almost none of target categories are present in the image, we find student performances of > 69% for classifying ImageNet's 1000 classes.
 					In this paper, we develop this single datum learning framework and investigate it across datasets and domains.
 				</td>
 			</tr>
@@ -220,10 +216,7 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				What can neural networks learn about the visual world from a single image? While it obviously cannot contain the multitudes of all existing objects, scenes and lighting conditions – within the space of all 256<sup>3x224x224</sup> possible 224- sized square images, it might still provide a strong prior for natural images. 
-				To analyze this hypothesis, we develop a simple framework for training neural networks from scratch using a single image and knowledge distillation from a supervised pretrained teacher. With this, we find the answer to the above question to be: <i>surprisingly, a lot</i>. 
-				In quantitative terms, we find accuracies of 94%/74% on CIFAR10/100, 66% on ImageNet, and by extending this method to video and audio, 51% on Kinetics-400 and 84% on SpeechCommands. In extensive analyses we disentangle the effect of augmentations, choice of data and network architectures and also discover <i>panda neurons</i> in networks that have never even seen one. 
-				This work demonstrates that one image can be used to extrapolate to thousands of objects classes and motivates research on the fundamental interplay of augmentations and images.
+				What can neural networks learn about the visual world when provided with only a single image as input? While any image obviously cannot contain the multitudes of all existing objects, scenes and lighting conditions – within the space of all  256<sup>3x224x224</sup> possible 224-sized square images, it might still provide a strong prior for natural images. To analyze this <i>augmented image prior</i> hypothesis, we develop a simple framework for training neural networks from scratch using a single image and augmentations using knowledge distillation from a supervised pretrained teacher. With this, we find the answer to the above question to be: <i>surprisingly, a lot</i>.  In quantitative terms, we find accuracies of 94%/74% on CIFAR-10/100, 69% on ImageNet, and by extending this method to video and audio, 51% on Kinetics-400 and 84\% on SpeechCommands. In extensive analyses spanning 13 datasets, we disentangle the effect of augmentations, choice of data and network architectures and also provide qualitative evaluations that include lucid <i>panda neurons</i> in networks that have never even seen one.
 			</td>
 		</tr>
 	</table>
@@ -245,7 +238,7 @@
 			<td>
 				<center>
 					<p><b>Distilling source image.</b> Content matters: less dense images do not train as well.</p>
-					<img class="round" style="width:400px" src="./resources/tab_2a.png"/>
+					<img class="round" style="width:400px" src="./resources/distilling_source_image.PNG"/>
 				</center>
 			</td>
 		</tr>
@@ -262,8 +255,17 @@
 		<tr class="spaceUnder">
 			<td>
 				<center>
-					<p><b>Analysis of IN-1k model distillations.</b> We vary distillation dataset and teacher and student configs. We achieve <u>66% top-1 single-crop accuracy</u> on IN-1k. See more details in the paper.</p>
-					<img class="round" style="width:500px" src="./resources/tab_9.png"/>
+					<p><b>Larger scale datasets.</b> Our method scales to larger models utilizing 224×224-sized images.</p>
+					<img class="round" style="width:550px" src="./resources/large_scale_datasets.PNG"/>
+				</center>
+			</td>
+		</tr>
+		
+		<tr class="spaceUnder">
+			<td>
+				<center>
+					<p><b>Analysis of IN-1k model distillations.</b> We vary distillation dataset and teacher and student configs. We achieve <u>69% top-1 single-crop accuracy</u> on IN-1k. See more details in the paper.</p>
+					<img class="round" style="width:500px" src="./resources/in1k_distillations.PNG"/>
 				</center>
 			</td>
 		</tr>
